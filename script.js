@@ -4,7 +4,7 @@ const preview = document.getElementById("preview");
 // Load saved note from localStorage
 window.addEventListener("load", () => {
     const savedNote = localStorage.getItem("note");
-    if (savedNote) {
+    if (savedNote !== null) {
         noteArea.value = savedNote;
         updatePreview();
     }
@@ -23,5 +23,5 @@ function updatePreview() {
     preview.innerHTML = linkedText;
 }
 
-// Initial update
+// Ensure preview updates on page load
 updatePreview();
