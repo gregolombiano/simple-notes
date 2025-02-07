@@ -2,7 +2,13 @@ const noteArea = document.getElementById("noteArea");
 const preview = document.getElementById("preview");
 
 // Load saved note from localStorage
-noteArea.value = localStorage.getItem("note") || "";
+window.addEventListener("load", () => {
+    const savedNote = localStorage.getItem("note");
+    if (savedNote) {
+        noteArea.value = savedNote;
+        updatePreview();
+    }
+});
 
 // Auto-save the note on input change
 noteArea.addEventListener("input", () => {
